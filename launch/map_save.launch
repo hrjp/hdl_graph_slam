@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="hdl_graph_slam" type="save_map_service.sh" args="$(find hdl_graph_slam)/pcd" name="map_save" output="screen" />
+</launch>

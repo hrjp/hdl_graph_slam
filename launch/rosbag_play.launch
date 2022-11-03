@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="bag_file" default="/home/share/rosbag/nakanoshima211023_mapping.bag" />
+    <arg name="playback_speed" default="2.0" />
+
+    <param name="/use_sim_time" value="true" />
+    <include file="$(find hdl_graph_slam)/launch/hdl_graph_slam.launch"/>
+    <!--<node pkg="hdl_graph_slam" type="bag_player.py" name="bag_player" args="$(arg bag_file)" />-->
+    <node pkg="rosbag" type="play" name="player" output="screen" args="$(arg bag_file) -r $(arg playback_speed) --clock --topic /velodyne_points /initialpose"/>
+</launch>
